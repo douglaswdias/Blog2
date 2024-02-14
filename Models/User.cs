@@ -1,3 +1,8 @@
+using System.Collections;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+
 namespace Blog2.Models
 {
   public class User
@@ -9,5 +14,7 @@ namespace Blog2.Models
     public string Bio { get; set; }
     public string Image { get; set; }
     public string Slug { get; set; }
+    public List<Post> Posts { get; set; }
+    public List<Role> Roles { get; set; }
   }
 }
