@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using Blog2.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
@@ -54,7 +55,23 @@ namespace Blog2.Data.Mappings
             .IsUnique();
 
           builder.HasIndex(x => x.Slug, "IX_User_Slug")
-          .IsUnique();
+            .IsUnique();
+
+          builder.HasMany(x => x.Roles)
+            .WithMany(x => x.Users)
+            .UsingEntity<Dictionary<string, object>>(
+              "UserRole",
+              Role => Role
+                .HasOne<Role>()
+                .WithMany()
+                .HasConstraintName("FK_UserRole_RoleId")
+                .OnDelete(DeleteBehavior.Cascade),
+              User => User
+                .HasOne<User>()
+                .WithMany()
+                .HasConstraintName("FK_UserRole_UserId")
+                .OnDelete(DeleteBehavior.Cascade)
+            );
         }
     }
 }
