@@ -64,11 +64,13 @@ namespace Blog2.Data.Mappings
               Role => Role
                 .HasOne<Role>()
                 .WithMany()
+                .HasForeignKey("RoleId")
                 .HasConstraintName("FK_UserRole_RoleId")
                 .OnDelete(DeleteBehavior.Cascade),
               User => User
                 .HasOne<User>()
                 .WithMany()
+                .HasForeignKey("UserId")
                 .HasConstraintName("FK_UserRole_UserId")
                 .OnDelete(DeleteBehavior.Cascade)
             );

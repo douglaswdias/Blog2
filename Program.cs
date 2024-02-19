@@ -11,7 +11,38 @@ namespace Blog2
   {
     static void Main(string[] args)
     {
-      
+      using var context = new BlogDataContext();
+
+      // // Create User
+      // context.Users.Add(new User
+      // {
+      //   Bio = "http",
+      //   Email = "asidfh",
+      //   Image = "http://",
+      //   Name = "asidfh",
+      //   PasswordHash = "asidfji",
+      //   Slug = "asidf"
+      // });
+      // context.SaveChanges();
+
+      // // Create Post with User
+      // var user = context.Users.FirstOrDefault();
+      // var post = new Post
+      // {
+      //   Author = user,
+      //   Body = "kkkkkkkkkk",
+      //   Category = new Category
+      //   {
+      //     Name = "jjjjjjjj",
+      //     Slug = "hhhhhhhh",
+      //   },
+      //   CreateDate = DateTime.Now,
+      //   Slug = "kkkkkkkkkkkk",
+      //   Summary = "asdjkkkk",
+      //   Title = "asdj"
+      // };
+      // context.Posts.Add(post);
+      // context.SaveChanges();
     }
   }
 }

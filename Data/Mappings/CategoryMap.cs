@@ -23,7 +23,7 @@ namespace Blog2.Data.Mappings
 
           builder.Property(x => x.Slug)
             .IsRequired()
-            .HasColumnName("Slag")
+            .HasColumnName("Slug")
             .HasColumnType("VARCHAR")
             .HasMaxLength(80);
 
